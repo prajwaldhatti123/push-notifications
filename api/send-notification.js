@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         console.log('Sending notification to:', subscription.endpoint);
       await webPush.sendNotification(subscription, payload);
     }
-    res.status(200).json({ message: 'Notifications sent' });
+    res.status(200).json({ message: 'Notifications sent'  , subscriptions});
   } catch (error) {
     console.error('Notification error:', error);
     res.status(500).json({ error: 'Failed to send notifications' });
