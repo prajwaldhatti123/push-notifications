@@ -15,15 +15,16 @@ webPush.setVapidDetails(
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { title, body } = req.body;
-  const payload = JSON.stringify({ title, body });
+  const { subscription } = req.body;
+  const payload = JSON.stringify({ title : "title", body : "testing notification" });
 
   try {
-    for (const subscription of subscriptions) {
-        console.log('Sending notification to:', subscription.endpoint);
-      await webPush.sendNotification(subscription, payload);
-    }
-    res.status(200).json({ message: 'Notifications sent'  , subscriptions});
+    // for (const subscription of subscriptions) {
+    //     console.log('Sending notification to:', subscription.endpoint);
+    //   await webPush.sendNotification(subscription, payload);
+    // }
+    await webPush.sendNotification(subscription, payload);
+    res.status(200).json({ message: 'Notifications sent' });
   } catch (error) {
     console.error('Notification error:', error);
     res.status(500).json({ error: 'Failed to send notifications' });
