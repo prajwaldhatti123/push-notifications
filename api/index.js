@@ -30,7 +30,7 @@ app.post('subscribe', (req, res) => {
 });
 
 // Unsubscribe endpoint
-app.post('/unsubscribe', (req, res) => {
+app.post('unsubscribe', (req, res) => {
   const subscription = req.body;
   subscriptions = subscriptions.filter(sub => sub.endpoint !== subscription.endpoint);
   console.log('Subscription removed:', subscription);
@@ -52,5 +52,14 @@ app.post('send-notification', async (req, res) => {
     res.status(500).json({ error: 'Failed to send notifications' });
   }
 });
+
+app.get('health' , async (req , res)=>{
+    res.json("Heart beat from server")
+    try {
+        res.status(200).json({ message: 'Heart beat from server' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to send beat' });
+    }
+})
 
 module.exports = app;
