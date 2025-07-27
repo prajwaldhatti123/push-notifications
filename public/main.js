@@ -50,7 +50,7 @@ async function subscribe(registration) {
     });
     console.log('Subscribed:', subscription);
     // Send subscription to server
-    await fetch('/api/subscribe', {
+    await fetch('subscribe', {
       method: 'POST',
       body: JSON.stringify(subscription),
       headers: { 'Content-Type': 'application/json' }
@@ -70,7 +70,7 @@ async function unsubscribe(registration) {
     if (subscription) {
       await subscription.unsubscribe();
       // Notify server (optional)
-      await fetch('/api/unsubscribe', {
+      await fetch('unsubscribe', {
         method: 'POST',
         body: JSON.stringify(subscription),
         headers: { 'Content-Type': 'application/json' }

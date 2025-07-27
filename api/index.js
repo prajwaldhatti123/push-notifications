@@ -22,7 +22,7 @@ webPush.setVapidDetails(
 );
 
 // Subscribe endpoint
-app.post('api/subscribe', (req, res) => {
+app.post('subscribe', (req, res) => {
   const subscription = req.body;
   subscriptions.push(subscription);
   console.log('Subscription added:', subscription);
@@ -30,7 +30,7 @@ app.post('api/subscribe', (req, res) => {
 });
 
 // Unsubscribe endpoint
-app.post('api/unsubscribe', (req, res) => {
+app.post('/unsubscribe', (req, res) => {
   const subscription = req.body;
   subscriptions = subscriptions.filter(sub => sub.endpoint !== subscription.endpoint);
   console.log('Subscription removed:', subscription);
@@ -38,7 +38,7 @@ app.post('api/unsubscribe', (req, res) => {
 });
 
 // Send notification endpoint
-app.post('api/send-notification', async (req, res) => {
+app.post('send-notification', async (req, res) => {
   const { title, body } = req.body;
   const payload = JSON.stringify({ title, body });
 
