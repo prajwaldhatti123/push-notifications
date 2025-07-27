@@ -20,6 +20,7 @@ export default async function handler(req, res) {
 
   try {
     for (const subscription of subscriptions) {
+        console.log('Sending notification to:', subscription.endpoint);
       await webPush.sendNotification(subscription, payload);
     }
     res.status(200).json({ message: 'Notifications sent' });
