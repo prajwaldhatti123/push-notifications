@@ -12,7 +12,7 @@ let subscriptions = [];
 // VAPID keys (generate once and reuse)
 const vapidKeys = {
   publicKey: 'BIDdKaVva69VLQsePdainTP2oLlWtoMe_--SgbWprGcDfAmA9ZIqfp1AuhUmT9KSsfcYVFj1gMn4u4oD7NLJMEI', // Replace with your VAPID public key
-  privateKey: 'BIDdKaVva69VLQsePdainTP2oLlWtoMe_--SgbWprGcDfAmA9ZIqfp1AuhUmT9KSsfcYVFj1gMn4u4oD7NLJMEI' // Replace with your VAPID private key
+  privateKey: 'YrLqwL28dNqLtoK-BRFBJHRD0APFHrwFz0eSDCrV6O0' // Replace with your VAPID private key
 };
 
 webPush.setVapidDetails(
